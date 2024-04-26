@@ -1,0 +1,41 @@
+@use '../../fonts/fonts_list.scss' as *;
+
+.checkbox {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	width: 24px;
+	height: 24px;
+	background-color: transparent;
+	border: 1px solid #809992;
+	border-radius: 4px;
+	padding: 0;
+	cursor: pointer;
+	transition: 0.3s opacity;
+	place-content: center;
+	display: grid;
+	margin-right: 12px;
+	&:focus {
+		outline: none;
+	}
+	&:checked::before {
+		content: '';
+		width: 14px;
+		height: 9px;
+		background-image: url('../../images/chosen-filter.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+
+.label {
+	@include font($sans, 18px, 20px, 0);
+	display: flex;
+	align-items: flex-end;
+	margin-bottom: 18px;
+}
+
+.text {
+	margin: 0;
+	padding: 0;
+}

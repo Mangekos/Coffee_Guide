@@ -1,0 +1,56 @@
+@use '../../assets/fonts/fonts_list.scss' as *;
+
+.container {
+	width: 567px;
+	height: 704px;
+	border-radius: 16px;
+	overflow-y: scroll;
+	display: flex;
+	flex-direction: column;
+	ul {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		column-gap: 20px;
+		padding: 0;
+		margin: 0;
+		li {
+			width: 268px;
+			list-style: none;
+			margin-bottom: 12px;
+			&:nth-last-child(-n + 2) {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+.container::-webkit-scrollbar {
+	display: none;
+}
+
+.card {
+	padding: 0;
+	border: none;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.more {
+	margin: 26px auto 80px;
+	@include font($sans, 16px, 18px, 0);
+	background-color: transparent;
+	color: var(--decoration-color);
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	width: 179px;
+	height: 18px;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+	&:hover {
+		opacity: 0.7;
+	}
+}

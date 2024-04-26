@@ -1,0 +1,102 @@
+[
+    {
+        "id": "1",
+        "name": "Гостевое зерно",
+        "slug": "Quest grain"
+    },
+    {
+        "id": "2",
+        "name": "Собственная обжарка",
+        "slug": "Own roasting"
+    },
+    {
+        "id": "3",
+        "name": "Bloom-n-Brew",
+        "slug": "Bloom-n-Brew"
+    },
+    {
+        "id": "4",
+        "name": "Coffee Scouts",
+        "slug": "Coffee Scouts"
+    },
+    {
+        "id": "5",
+        "name": "Botanica",
+        "slug": "Botanica"
+    },
+    {
+        "id": "6",
+        "name": "Rockets Roasters",
+        "slug": "Rockets Roasters"
+    },
+    {
+        "id": "7",
+        "name": "Underground Coffee Project",
+        "slug": "Underground Coffee Project"
+    },
+    {
+        "id": "8",
+        "name": "The Welder Catherine",
+        "slug": "The_Welder_Catherine"
+    },
+    {
+        "id": "9",
+        "name": "Calipso",
+        "slug": "Calipso"
+    },
+    {
+        "id": "10",
+        "name": "Roasting Brew",
+        "slug": "Roasting Brew"
+    },
+    {
+        "id": "11",
+        "name": "Sibaristica",
+        "slug": "Sibaristica"
+    },
+    {
+        "id": "12",
+        "name": "West 4",
+        "slug": "West 4"
+    },
+    {
+        "id": "13",
+        "name": "Submarine",
+        "slug": "Submarine"
+    },
+    {
+        "id": "14",
+        "name": "Silky Drum",
+        "slug": "Silky Drum"
+    },
+    {
+        "id": "15",
+        "name": "Camera Obscura",
+        "slug": "Camera Obscura"
+    },
+    {
+        "id": "16",
+        "name": "Tasty",
+        "slug": "Tasty"
+    },
+    {
+        "id": "17",
+        "name": "QQ Coffee",
+        "slug": "QQ Coffee"
+    },
+    {
+        "id": "18",
+        "name": "Tasty coffee",
+        "slug": "Tasty coffee"
+    },
+    {
+        "id": "19",
+        "name": "Adept Coffee",
+        "slug": "Adept Coffee"
+    },
+    {
+        "id": "20",
+        "name": "The coffee soldiers",
+        "slug": "The coffee soldiers"
+    }
+]

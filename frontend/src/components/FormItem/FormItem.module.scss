@@ -1,0 +1,39 @@
+@use '../../assets/fonts/fonts_list.scss' as *;
+
+$base-width: 364px;
+
+.container {
+	width: $base-width;
+	height: 50px;
+	border: 1px solid #809992;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 16px;
+	&:last-child {
+		margin-bottom: 32px;
+	}
+	box-sizing: border-box;
+	&:focus-within {
+		border-color: #3da083;
+	}
+}
+
+.input {
+	@include font($sans, 18px, 20px, 0.18px);
+	border: 0;
+	width: 100%;
+	margin: 16px;
+	height: 20px;
+
+	background-color: transparent;
+
+	&::placeholder {
+		@include font($sans, 18px, 20px, 0.18px);
+		color: #809992;
+		text-transform: uppercase;
+	}
+	&:focus {
+		outline: none;
+	}
+}

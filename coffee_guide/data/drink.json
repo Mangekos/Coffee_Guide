@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "name": "Капучино",
+        "slug": "cappuccino"
+    },
+    {
+        "id": "2",
+        "name": "Латте",
+        "slug": "latte"
+    },
+    {
+        "id": "3",
+        "name": "Флэт Уайт",
+        "slug": "flat_white"
+    },
+    {
+        "id": "4",
+        "name": "Эспрессо",
+        "slug": "espresso"
+    },
+    {
+        "id": "5",
+        "name": "Американо",
+        "slug": "americano"
+    },
+    {
+        "id": "6",
+        "name": "Фильтр кофе",
+        "slug": "coffee_filter"
+    }
+]

@@ -1,0 +1,93 @@
+@use '../../assets/fonts/fonts_list.scss' as *;
+$base-width: 364px;
+
+.container {
+	@include font($sans, 14px, 18px, 0.14px);
+	color: #2e3231;
+	min-height: 547px;
+	margin: 0 auto;
+	padding: 300px 0 80px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.text {
+	padding: 0;
+	margin: 0;
+	width: 362px;
+	min-height: 44px;
+	text-align: center;
+	color: var(--text-color-alternative);
+}
+
+.links {
+	margin-top: 20px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	color: var(--text-color);
+}
+
+.link {
+	@include font($sans, 14px, 18px, 0.14px);
+	color: var(--text-color);
+
+	opacity: 1;
+	transition: opacity 0.3s ease;
+	&:hover {
+		opacity: 0.5;
+	}
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.input_container {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 16px;
+	// background-color: var(--input);
+	&:last-of-type {
+		margin-bottom: 32px;
+	}
+}
+
+.input_error {
+	border-color: #a42e51 !important;
+}
+
+.input {
+	@include font($sans, 18px, 20px, 0.18px);
+	height: 50px;
+	border: 1px solid #809992;
+	border-radius: 12px;
+	width: 364px;
+	padding: 16px;
+	height: 50px;
+	background-color: transparent;
+	box-shadow: var(--box-shadow);
+	color: var(--text-color);
+	box-sizing: border-box;
+	&::placeholder {
+		@include font($sans, 18px, 20px, 0.18px);
+		color: #809992;
+	}
+	&:focus {
+		border-color: #3da083;
+		outline: none;
+	}
+}
+
+.error {
+	@include font($sans, 14px, 18px, 0.14px);
+	color: #a42e51;
+	align-self: flex-start;
+	margin-top: 4px;
+}

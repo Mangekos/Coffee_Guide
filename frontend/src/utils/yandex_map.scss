@@ -1,0 +1,60 @@
+// Классы кнопки зума
+.ymaps-2-1-79-controls__toolbar {
+	margin: 0 !important;
+}
+
+.ymaps-2-1-79-controls__control_toolbar {
+	margin: 16px !important;
+}
+
+.ymaps-2-1-79-float-button {
+	box-shadow: none !important;
+	width: 56px !important;
+	height: 56px !important;
+	max-width: 60px !important;
+	border: 0 !important;
+}
+
+.ymaps-2-1-79-float-button-icon {
+	width: 56px !important;
+	height: 56px !important;
+	border: 0 !important;
+}
+
+.ymaps-2-1-79-float-button-icon_icon_collapse {
+	background-image: url('../assets/images/ui-kit-icons/zoom-out.svg') !important;
+}
+
+.ymaps-2-1-79-float-button-icon_icon_expand {
+	background-image: url('../assets/images/ui-kit-icons/zoom-in.svg') !important;
+}
+
+// Классы балуна
+.ymaps-2-1-79-balloon {
+	box-shadow: none !important;
+	border: 0;
+	top: 0 !important;
+	left: -275px !important;
+}
+
+.ymaps-2-1-79-balloon__content {
+	padding: 0 !important;
+	background: transparent !important;
+	margin: 0 !important;
+}
+
+.ymaps-2-1-79-balloon__layout {
+	background: transparent !important;
+	border: none !important;
+}
+
+// Указатель балуна
+
+.ymaps-2-1-79-balloon__tail {
+	background: transparent !important;
+	box-shadow: none !important;
+}
+
+.ymaps-2-1-79-balloon__tail::after {
+	display: none !important;
+}

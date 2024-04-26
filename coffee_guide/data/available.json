@@ -1,0 +1,27 @@
+[
+    {
+        "id": "1",
+        "name": "Альтернатива",
+        "slug": "alternative"
+    },
+    {
+        "id": "2",
+        "name": "Безлактозное молоко",
+        "slug": "lactose_free_milk"
+    },
+    {
+        "id": "3",
+        "name": "Submarine",
+        "slug": "submarine"
+    },
+    {
+        "id": "4",
+        "name": "La Marzocco",
+        "slug": "la_marzocco"
+    },
+    {
+        "id": "5",
+        "name": "Сварщица",
+        "slug": "sweater"
+    }
+]

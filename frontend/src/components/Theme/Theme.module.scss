@@ -1,0 +1,48 @@
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 48px;
+	height: 32px;
+	border: 1.5px solid var(--text-color);
+	border-radius: 16px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+	display: none;
+}
+
+/* The slider */
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: transparent;
+	border-radius: 14px;
+	-webkit-transition: 0.4s;
+	transition: 0.4s all ease;
+	// box-shadow: 5px 0 0 -3.5px;
+}
+
+.slider::before {
+	position: absolute;
+	content: '';
+	height: 24px;
+	width: 24px;
+	right: 4px;
+	bottom: 4px;
+	background-image: url(../../assets/images/ui-kit-icons/sun.svg);
+	border-radius: 50%;
+	-webkit-transition: 0.4s;
+	transition: 0.4s all ease;
+}
+
+input:checked + .slider::before {
+	-webkit-transform: translateX(-16px);
+	-ms-transform: translateX(-16px);
+	transform: translateX(-16px);
+	background-image: url(../../assets/images/ui-kit-icons/moon.svg);
+}

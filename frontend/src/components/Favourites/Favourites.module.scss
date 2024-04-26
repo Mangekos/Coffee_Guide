@@ -1,0 +1,68 @@
+@use '../../assets/fonts/fonts_list.scss' as *;
+
+.container {
+	margin: 0 auto;
+	max-width: 1132px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.back_button {
+	align-self: flex-start;
+}
+
+.cardlist {
+	width: 567px;
+	height: 704px;
+	margin-bottom: 61px;
+	border-radius: 16px;
+	overflow-y: scroll;
+	ul {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		column-gap: 20px;
+		padding: 0;
+		margin: 0;
+		li {
+			width: 268px;
+			list-style: none;
+			margin-bottom: 12px;
+			&:nth-last-child(-n + 2) {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+.cardlist::-webkit-scrollbar {
+	display: none;
+}
+
+.no_favourites {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 245px;
+}
+
+.text {
+	margin: 0;
+	@include font($sans, 18px, 20px, 0.18px);
+	color: var(--decoration-color-alternative);
+}
+
+.coffee_cup {
+	width: 160px;
+	height: 152px;
+	margin-top: 36px;
+	background-image: url(../../assets/images/coffee-cup.svg);
+}
+
+.coffee_cup_dark {
+	width: 160px;
+	height: 152px;
+	margin-top: 36px;
+	background-image: url(../../assets/images/coffee-cup-dark.svg);
+}

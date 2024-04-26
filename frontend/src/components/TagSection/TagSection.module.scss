@@ -1,0 +1,28 @@
+.tags {
+	margin: 36px auto 8px;
+	max-width: 1132px;
+	min-height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	ul {
+		display: flex;
+		flex-direction: row;
+		padding: 0;
+		margin: 0 auto;
+		li {
+			cursor: pointer;
+			text-decoration: none;
+			list-style: none;
+			margin-right: 36px;
+			&:last-of-type {
+				margin-right: 0;
+			}
+			&:hover {
+				background-color: var(--hover);
+				border-radius: 10px;
+			}
+		}
+	}
+}

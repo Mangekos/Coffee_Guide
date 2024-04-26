@@ -1,0 +1,23 @@
+@use '../../fonts/fonts_list.scss' as *;
+
+.back {
+	display: flex;
+	align-items: center;
+	padding: 0;
+	border: none;
+	@include font($sans, 18px, 20px);
+	font-size: 18px;
+	color: inherit;
+	background-color: transparent;
+	cursor: pointer;
+	transition: opacity 0.3s ease-in-out;
+	.back_icon {
+		width: 8px;
+		height: 14px;
+		margin-right: 8px;
+		// background-image: url(../../assets/images/back.svg);
+	}
+	&:hover {
+		opacity: 0.8;
+	}
+}

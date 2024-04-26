@@ -1,0 +1,63 @@
+@use '../../assets/fonts/fonts_list.scss' as *;
+
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	width: 100%;
+	min-height: 96px;
+	@include font($sans, 14px, 18px, 0.14px);
+	color: rgba(130, 130, 130, 1);
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 1132px;
+	flex-direction: row;
+	color: var(--text-footer);
+
+	h3 {
+		padding: 0;
+		margin: 0;
+		font-weight: 400;
+	}
+
+	p {
+		margin: 8px 0 0 0;
+		color: rgba(127, 127, 127, 1);
+	}
+}
+
+@mixin link {
+	text-decoration: none;
+	transition: opacity 0.3s ease-in;
+
+	&:hover {
+		opacity: 0.5;
+	}
+}
+
+.link_icons {
+	@include link();
+	color: rgba(127, 127, 127, 1);
+}
+
+.link_profile {
+	@include link();
+	margin-right: 60px;
+	opacity: 1;
+	color: var(--decoration-color);
+}
+
+// .link {
+// 	text-decoration: none;
+// 	color: var(--decoration-color);
+// }
+
+.aligner {
+	display: flex;
+	flex-direction: row;
+}

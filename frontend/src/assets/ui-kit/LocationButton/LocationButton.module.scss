@@ -1,0 +1,23 @@
+.default {
+	width: 22px;
+	height: 27px;
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	background-image: url(../../images/ui-kit-icons/tag.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 22px 27px;
+}
+
+.default:hover {
+	background-image: url(../../images/ui-kit-icons/tag-hover.svg);
+}
+
+.active {
+	background-image: url(../../images/ui-kit-icons/tag-active.svg);
+}
+.active.default:hover {
+	background-image: url(../../images/ui-kit-icons/tag-active.svg);
+}

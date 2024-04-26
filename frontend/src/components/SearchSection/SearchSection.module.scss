@@ -1,0 +1,58 @@
+@use '../../assets/fonts/fonts_list.scss' as *;
+
+.container {
+	max-width: 563px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.input_container {
+	width: 440px;
+	height: 52px;
+	border: 1px solid var(--line-color);
+	border-radius: 152px;
+	margin-right: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--input);
+	box-sizing: border-box;
+	box-shadow: var(--box-shadow);
+	&:focus-within {
+		border-color: var(--decoration-color);
+	}
+	position: relative;
+}
+
+.input {
+	margin-left: 26px;
+	width: 440px;
+	height: 20px;
+	padding-left: 38px;
+
+	@include font($sans, 18px, 20px, 0.18px);
+	color: var(--text-color);
+	border: 0;
+	background-color: transparent;
+	background-image: url('../../assets/images/search-icon.svg');
+	background-repeat: no-repeat;
+	background-size: 22px 22px;
+	&::placeholder {
+		@include font($sans, 18px, 20px, 0.18px);
+		color: var(--placeholder);
+		text-transform: none;
+		opacity: 1;
+		transition: opacity 0.3s ease;
+	}
+
+	&:focus {
+		outline: none;
+		background-image: url('../../assets/images/search-icon-active.svg');
+	}
+}
+
+.input:focus::placeholder {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}

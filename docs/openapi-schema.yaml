@@ -1,0 +1,1550 @@
+openapi: 3.0.3
+info:
+  title: Coffee_guide
+  version: 1.0.0
+  description: Coffee Guide for human
+paths:
+  /api/v1/additionals/:
+    get:
+      operationId: api_v1_additionals_list
+      description: Все пользователи
+      summary: Получить список альтернатив
+      tags:
+      - Альтернатива
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Alternative'
+          description: ''
+  /api/v1/additionals/{id}/:
+    get:
+      operationId: api_v1_additionals_retrieve
+      description: Все пользователи
+      summary: Детальная информация об альтернативе
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Дополнение.
+        required: true
+      tags:
+      - Альтернатива
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Alternative'
+          description: ''
+  /api/v1/addresses/:
+    get:
+      operationId: api_v1_addresses_list
+      description: Все пользователи
+      summary: Получить список адресов
+      tags:
+      - Адрес
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Address'
+          description: ''
+  /api/v1/addresses/{id}/:
+    get:
+      operationId: api_v1_addresses_retrieve
+      description: Все пользователи
+      summary: Детальная информация об адресе
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Адрес.
+        required: true
+      tags:
+      - Адрес
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+          description: ''
+  /api/v1/auth/token/login/:
+    post:
+      operationId: api_v1_auth_token_login_create
+      description: Use this endpoint to obtain user authentication token.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenCreate'
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenCreate'
+          description: ''
+  /api/v1/auth/token/logout/:
+    post:
+      operationId: api_v1_auth_token_logout_create
+      description: Use this endpoint to logout user (remove user authentication token).
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/cafes/:
+    get:
+      operationId: api_v1_cafes_list
+      description: Все пользователи
+      summary: Получить список заведений
+      parameters:
+      - in: query
+        name: address
+        schema:
+          type: string
+      - in: query
+        name: availables
+        schema:
+          type: string
+      - in: query
+        name: is_alternatives
+        schema:
+          type: boolean
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Кофейня
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCafeGetList'
+          description: ''
+    post:
+      operationId: api_v1_cafes_create
+      description: Все пользователи
+      summary: Создать заведение
+      tags:
+      - Кофейня
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CafeCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CafeCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CafeCreate'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CafeCreate'
+          description: ''
+  /api/v1/cafes/{id}/:
+    get:
+      operationId: api_v1_cafes_retrieve
+      description: Все пользователи
+      summary: Детальная информация о заведении
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Кофейня.
+        required: true
+      tags:
+      - Кофейня
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CafeGet'
+          description: ''
+    put:
+      operationId: api_v1_cafes_update
+      description: Все пользователи
+      summary: Обновить заведение
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Кофейня.
+        required: true
+      tags:
+      - Кофейня
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CafeCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CafeCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CafeCreate'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CafeCreate'
+          description: ''
+    patch:
+      operationId: api_v1_cafes_partial_update
+      description: Все пользователи
+      summary: Частичное обновление заведения
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Кофейня.
+        required: true
+      tags:
+      - Кофейня
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCafeCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCafeCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCafeCreate'
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CafeCreate'
+          description: ''
+    delete:
+      operationId: api_v1_cafes_destroy
+      description: Все пользователи
+      summary: Удалить заведение
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Кофейня.
+        required: true
+      tags:
+      - Кофейня
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/v1/drinks/:
+    get:
+      operationId: api_v1_drinks_list
+      description: Все пользователи
+      summary: Получить список напитков
+      tags:
+      - Напитки
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Drink'
+          description: ''
+  /api/v1/drinks/{id}/:
+    get:
+      operationId: api_v1_drinks_retrieve
+      description: Все пользователи
+      summary: Детальная информация о напитке
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Напиток.
+        required: true
+      tags:
+      - Напитки
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drink'
+          description: ''
+  /api/v1/roasters/:
+    get:
+      operationId: api_v1_roasters_list
+      description: Все пользователи
+      summary: Получить список обжарщиков
+      parameters:
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Обжарщик
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Roaster'
+          description: ''
+  /api/v1/roasters/{id}/:
+    get:
+      operationId: api_v1_roasters_retrieve
+      description: Все пользователи
+      summary: Детальная информация об обжарщике
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Обжарщик кофе.
+        required: true
+      tags:
+      - Обжарщик
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Roaster'
+          description: ''
+  /api/v1/schedules/:
+    get:
+      operationId: api_v1_schedules_list
+      description: Все пользователи
+      summary: Получить список расписания работы
+      tags:
+      - Время работы
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Schedule'
+          description: ''
+  /api/v1/schedules/{id}/:
+    get:
+      operationId: api_v1_schedules_retrieve
+      description: Все пользователи
+      summary: Детальная информация о расписании работы
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this День недели.
+        required: true
+      tags:
+      - Время работы
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schedule'
+          description: ''
+  /api/v1/tags/:
+    get:
+      operationId: api_v1_tags_list
+      description: Все пользователи
+      summary: Получить список тегов
+      tags:
+      - Теги
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Additional'
+          description: ''
+  /api/v1/tags/{id}/:
+    get:
+      operationId: api_v1_tags_retrieve
+      description: Все пользователи
+      summary: Детальная информация о тегах
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Дополнительные опции.
+        required: true
+      tags:
+      - Теги
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Additional'
+          description: ''
+  /api/v1/users/:
+    get:
+      operationId: api_v1_users_list
+      description: Все пользователи
+      summary: Получить список организаций
+      tags:
+      - Организация
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomUser'
+          description: ''
+    post:
+      operationId: api_v1_users_create
+      description: Все пользователи
+      summary: Создание организации
+      tags:
+      - Организация
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OnlyInnCreateUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/OnlyInnCreateUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/OnlyInnCreateUser'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnlyInnCreateUser'
+          description: ''
+  /api/v1/users/{id}/:
+    get:
+      operationId: api_v1_users_retrieve
+      description: Все пользователи
+      summary: Детальная информация об организации
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Пользователь.
+        required: true
+      tags:
+      - Организация
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    put:
+      operationId: api_v1_users_update
+      description: |-
+        Вьюсет для:
+
+        - изменения пароля;
+        - регистрации нового пользователя;
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Пользователь.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    patch:
+      operationId: api_v1_users_partial_update
+      description: |-
+        Вьюсет для:
+
+        - изменения пароля;
+        - регистрации нового пользователя;
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Пользователь.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    delete:
+      operationId: api_v1_users_destroy
+      description: Все пользователи
+      summary: Удаление организации
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Пользователь.
+        required: true
+      tags:
+      - Организация
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/v1/users/activation/:
+    post:
+      operationId: api_v1_users_activation_create
+      description: Все пользователи
+      tags:
+      - Организация
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Activation'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Activation'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Activation'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activation'
+          description: ''
+  /api/v1/users/me/:
+    get:
+      operationId: api_v1_users_me_retrieve
+      description: Все пользователи
+      tags:
+      - Организация
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    put:
+      operationId: api_v1_users_me_update
+      description: |-
+        Вьюсет для:
+
+        - изменения пароля;
+        - регистрации нового пользователя;
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    patch:
+      operationId: api_v1_users_me_partial_update
+      description: |-
+        Вьюсет для:
+
+        - изменения пароля;
+        - регистрации нового пользователя;
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    delete:
+      operationId: api_v1_users_me_destroy
+      description: Все пользователи
+      tags:
+      - Организация
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/v1/users/resend_activation/:
+    post:
+      operationId: api_v1_users_resend_activation_create
+      description: Все пользователи
+      tags:
+      - Организация
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendEmailReset'
+          description: ''
+  /api/v1/users/reset_password/:
+    post:
+      operationId: api_v1_users_reset_password_create
+      description: Все пользователи
+      summary: Отправка пароля на почту при изменении пароля
+      tags:
+      - Организация
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendEmailReset'
+          description: ''
+  /api/v1/users/reset_password_confirm/:
+    post:
+      operationId: api_v1_users_reset_password_confirm_create
+      description: Все пользователи
+      tags:
+      - Организация
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirmRetype'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirmRetype'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirmRetype'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordResetConfirmRetype'
+          description: ''
+  /api/v1/users/reset_username/:
+    post:
+      operationId: api_v1_users_reset_username_create
+      description: Все пользователи
+      tags:
+      - Организация
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendEmailReset'
+          description: ''
+  /api/v1/users/reset_username_confirm/:
+    post:
+      operationId: api_v1_users_reset_username_confirm_create
+      description: Все пользователи
+      tags:
+      - Организация
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsernameResetConfirm'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UsernameResetConfirm'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UsernameResetConfirm'
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsernameResetConfirm'
+          description: ''
+  /api/v1/users/set_password/:
+    post:
+      operationId: api_v1_users_set_password_create
+      description: Все пользователи
+      tags:
+      - Организация
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetPasswordRetype'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SetPasswordRetype'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SetPasswordRetype'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetPasswordRetype'
+          description: ''
+  /api/v1/users/set_username/:
+    post:
+      operationId: api_v1_users_set_username_create
+      description: Все пользователи
+      tags:
+      - Организация
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetUsername'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SetUsername'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SetUsername'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetUsername'
+          description: ''
+components:
+  schemas:
+    Activation:
+      type: object
+      properties:
+        uid:
+          type: string
+        token:
+          type: string
+      required:
+      - token
+      - uid
+    Additional:
+      type: object
+      description: 'Сериализация данных: Тэгов.'
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Дополнительные опции
+          maxLength: 100
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - id
+      - name
+      - slug
+    Address:
+      type: object
+      description: 'Сериализация данных: Адрес.'
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Адрес кофейни
+          maxLength: 150
+        lat:
+          type: number
+          format: double
+          nullable: true
+          title: Широта
+        lon:
+          type: number
+          format: double
+          nullable: true
+          title: Долгота
+      required:
+      - id
+      - name
+    Alternative:
+      type: object
+      description: 'Сериализация данных: Доп.опции.'
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Дополнение
+          maxLength: 100
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - id
+      - name
+      - slug
+    Available:
+      type: object
+      description: 'Сериализация данных: Доп.опции.'
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Доступные опции
+          maxLength: 100
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - id
+      - name
+      - slug
+    CafeCreate:
+      type: object
+      description: Пост сериализатор кофеен
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Название кофейни
+          maxLength: 150
+        description:
+          type: string
+          nullable: true
+          title: Описание кофейни
+          maxLength: 1500
+        schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleInCafeCreate'
+        alternatives:
+          type: array
+          items:
+            type: integer
+            title: Дополнительные опции
+          title: Дополнительные опции
+        address:
+          type: integer
+          nullable: true
+          title: Адрес кофейни
+        roasters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Roaster'
+          readOnly: true
+        additionals:
+          type: array
+          items:
+            type: integer
+            title: Дополнительные опции
+          title: Дополнительные опции
+        availables:
+          type: array
+          items:
+            type: integer
+            title: Доступные опции
+          title: Доступные опции
+        is_alternatives:
+          type: boolean
+          title: Дополнение
+        drinks:
+          type: array
+          items:
+            $ref: '#/components/schemas/DrinkInCafeCreate'
+        image:
+          type: string
+          format: uri
+      required:
+      - additionals
+      - alternatives
+      - availables
+      - drinks
+      - id
+      - image
+      - name
+      - roasters
+      - schedules
+    CafeGet:
+      type: object
+      description: Гет сериализатор кофеен
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Название кофейни
+          maxLength: 150
+        description:
+          type: string
+          nullable: true
+          title: Описание кофейни
+          maxLength: 1500
+        schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleInCafeGet'
+          readOnly: true
+        alternatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alternative'
+          readOnly: true
+        address:
+          allOf:
+          - $ref: '#/components/schemas/Address'
+          readOnly: true
+        roasters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Roaster'
+          readOnly: true
+        additionals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Additional'
+          readOnly: true
+        availables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Available'
+          readOnly: true
+        is_alternatives:
+          type: boolean
+          readOnly: true
+        drinks:
+          type: array
+          items:
+            $ref: '#/components/schemas/DrinkInCafeGet'
+          readOnly: true
+        image:
+          type: string
+          format: uri
+        organization:
+          allOf:
+          - $ref: '#/components/schemas/CustomUser'
+          readOnly: true
+      required:
+      - additionals
+      - address
+      - alternatives
+      - availables
+      - drinks
+      - id
+      - image
+      - is_alternatives
+      - name
+      - organization
+      - roasters
+      - schedules
+    CustomUser:
+      type: object
+      description: Сериализатор пользователей.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          title: Юзернейм
+          maxLength: 50
+        name:
+          type: string
+          title: ФИО
+          maxLength: 70
+        email:
+          type: string
+          format: email
+          title: Почта
+          maxLength: 254
+        organization_inn:
+          type: string
+          title: ИНН организации
+          maxLength: 12
+          minLength: 10
+      required:
+      - email
+      - id
+      - name
+      - organization_inn
+    Drink:
+      type: object
+      description: 'Сериализация данных: Напитков.'
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Напиток
+          maxLength: 100
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - id
+      - name
+      - slug
+    DrinkInCafeCreate:
+      type: object
+      description: 'Сериализация данных: Напитки в кофейне post.'
+      properties:
+        id:
+          type: integer
+        cost:
+          type: integer
+          nullable: true
+          title: Стоимость
+      required:
+      - id
+    DrinkInCafeGet:
+      type: object
+      description: 'Сериализация данных: Напитки в кофейне get.'
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        cost:
+          type: integer
+          nullable: true
+          title: Стоимость
+      required:
+      - id
+      - name
+    OnlyInnCreateUser:
+      type: object
+      description: Сериализатор для регистрации.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: ФИО
+          maxLength: 70
+        email:
+          type: string
+          format: email
+          maxLength: 50
+        organization_inn:
+          type: string
+          minLength: 10
+          maxLength: 12
+      required:
+      - email
+      - id
+      - name
+      - organization_inn
+    PaginatedCafeGetList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CafeGet'
+    PasswordResetConfirmRetype:
+      type: object
+      properties:
+        uid:
+          type: string
+        token:
+          type: string
+        new_password:
+          type: string
+        re_new_password:
+          type: string
+      required:
+      - new_password
+      - re_new_password
+      - token
+      - uid
+    PatchedCafeCreate:
+      type: object
+      description: Пост сериализатор кофеен
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Название кофейни
+          maxLength: 150
+        description:
+          type: string
+          nullable: true
+          title: Описание кофейни
+          maxLength: 1500
+        schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleInCafeCreate'
+        alternatives:
+          type: array
+          items:
+            type: integer
+            title: Дополнительные опции
+          title: Дополнительные опции
+        address:
+          type: integer
+          nullable: true
+          title: Адрес кофейни
+        roasters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Roaster'
+          readOnly: true
+        additionals:
+          type: array
+          items:
+            type: integer
+            title: Дополнительные опции
+          title: Дополнительные опции
+        availables:
+          type: array
+          items:
+            type: integer
+            title: Доступные опции
+          title: Доступные опции
+        is_alternatives:
+          type: boolean
+          title: Дополнение
+        drinks:
+          type: array
+          items:
+            $ref: '#/components/schemas/DrinkInCafeCreate'
+        image:
+          type: string
+          format: uri
+    PatchedCustomUser:
+      type: object
+      description: Сериализатор пользователей.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          title: Юзернейм
+          maxLength: 50
+        name:
+          type: string
+          title: ФИО
+          maxLength: 70
+        email:
+          type: string
+          format: email
+          title: Почта
+          maxLength: 254
+        organization_inn:
+          type: string
+          title: ИНН организации
+          maxLength: 12
+          minLength: 10
+    Roaster:
+      type: object
+      description: 'Сериализация данных: Обжарщиков.'
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Обжарщик кофе
+          maxLength: 100
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - id
+      - name
+      - slug
+    Schedule:
+      type: object
+      description: 'Сериализация данных: Время работы.'
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: День недели
+          maxLength: 100
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - id
+      - name
+      - slug
+    ScheduleInCafeCreate:
+      type: object
+      description: 'Сериализация данных: Расписание в кофейне post.'
+      properties:
+        id:
+          type: integer
+        start:
+          type: string
+          format: time
+        end:
+          type: string
+          format: time
+      required:
+      - end
+      - id
+      - start
+    ScheduleInCafeGet:
+      type: object
+      description: 'Сериализация данных: Расписание в кофейне get.'
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        start:
+          type: string
+          format: time
+        end:
+          type: string
+          format: time
+      required:
+      - end
+      - id
+      - name
+      - start
+    SendEmailReset:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+      required:
+      - email
+    SetPasswordRetype:
+      type: object
+      properties:
+        new_password:
+          type: string
+        re_new_password:
+          type: string
+        current_password:
+          type: string
+      required:
+      - current_password
+      - new_password
+      - re_new_password
+    SetUsername:
+      type: object
+      properties:
+        current_password:
+          type: string
+        new_username:
+          type: string
+          title: Юзернейм
+          maxLength: 50
+      required:
+      - current_password
+    TokenCreate:
+      type: object
+      properties:
+        password:
+          type: string
+        username:
+          type: string
+    UsernameResetConfirm:
+      type: object
+      properties:
+        new_username:
+          type: string
+          title: Юзернейм
+          maxLength: 50
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"

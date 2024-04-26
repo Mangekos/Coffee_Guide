@@ -1,0 +1,18 @@
+.default {
+	width: 44px;
+	height: 44px;
+	border: none;
+	border-radius: 50%;
+	padding: 0;
+	cursor: pointer;
+	background-color: rgba(23, 22, 20, 0.4);
+	background-image: url(../../images/ui-kit-icons/favorites.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 24px 22px;
+	transition: 0.3s opacity;
+}
+
+.active {
+	background-image: url(../../images/ui-kit-icons/favourites-click.svg);
+}

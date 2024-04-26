@@ -1,0 +1,104 @@
+@use '../../assets/fonts/fonts_list.scss' as *;
+
+.container {
+	margin: 0 auto;
+	width: 1132px;
+	display: flex;
+	position: relative;
+}
+
+.container_main {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 80px 0 106px;
+	width: 556px;
+}
+
+.input_list {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.input_container {
+	display: flex;
+	margin-bottom: 28px;
+	&:last-of-type {
+		margin-bottom: 72px;
+	}
+
+	p {
+		align-self: center;
+	}
+}
+
+.input_aligner {
+	display: flex;
+	flex-direction: column;
+}
+
+.input_item {
+	@include font($sans, 18px, 20px, 0);
+	color: var(--text-color);
+	background-color: transparent;
+	box-sizing: border-box;
+	padding: 15px;
+	margin: 0;
+	width: 364px;
+	height: 50px;
+	border-radius: 12px;
+	border-width: 0.5px;
+	border-color: rgba(128, 153, 146, 1);
+	text-wrap: wrap;
+	&:focus {
+		outline: none;
+		box-shadow: 1px 1px 4px rgba(70, 119, 104, 0.4);
+		background-color: rgba(128, 153, 146, 0.2);
+		overflow-wrap: break-word;
+	}
+	&::placeholder {
+		@include font($sans, 18px, 20px, 0);
+		text-align: left;
+		color: #809992;
+	}
+	&:last-of-type {
+		margin-right: 0;
+	}
+}
+
+.input_medium {
+	width: 172px;
+	margin-right: 20px;
+}
+
+.input_label {
+	@include font($sans, 18px, 20px, 0);
+	width: 172px;
+	margin-right: 20px;
+}
+
+.input_add {
+	@include font($sans, 18px, 20px, 0);
+}
+
+.input_aligner_row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.input_container_time {
+	flex-direction: column;
+}
+
+.close {
+	position: absolute;
+	margin: auto;
+	right: 0;
+}

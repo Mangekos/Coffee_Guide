@@ -1,0 +1,32 @@
+@use '../../assets/fonts/fonts_list.scss' as *;
+
+.container {
+	padding: 40px 0 80px;
+	max-width: 1132px;
+	margin: 0 auto;
+}
+
+.button_container {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.content {
+	margin-top: 28px;
+}
+
+.grid {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
+	gap: 20px;
+}
+
+.text {
+	@include font($sans, 14px, 18px, 0);
+	width: 362px;
+	text-align: center;
+	margin: 40px auto 0;
+}

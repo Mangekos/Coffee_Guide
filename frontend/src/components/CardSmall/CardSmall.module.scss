@@ -1,0 +1,104 @@
+$font-base: 'SourceSansPro-Regular';
+$font-title: 'Lora-Bold';
+
+.card {
+	width: 268px;
+	height: 342px;
+	border-radius: 12px;
+	border: 0.5px solid var(--1111, rgba(23, 22, 20, 0.2));
+	background: var(--card-color);
+	&:hover {
+		box-shadow: 1px 1px 4px 0px rgba(70, 119, 104, 0.4);
+	}
+}
+
+.photo_container {
+	display: grid;
+}
+
+.photo {
+	grid-area: 1 / 1;
+	width: 100%;
+	height: 214px;
+	object-fit: cover;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+.photo_null {
+	object-fit: fill;
+}
+
+.favourite {
+	grid-area: 1 / 1;
+	justify-self: end;
+
+	padding: 0;
+	margin: 0;
+	border: 0;
+	margin-right: 12px;
+	margin-top: 12px;
+}
+
+.close {
+	grid-area: 1 / 1;
+
+	padding: 0;
+	margin: 0;
+	border: 0;
+	margin-left: 12px;
+	margin-top: 12px;
+
+	border-radius: 50%;
+	background-color: #fff;
+	width: 44px;
+	height: 44px;
+	background-image: url('../../assets/images/close-icon.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+
+	// &:hover {
+	// 	opacity: 0.8;
+	// }
+}
+
+.info {
+	padding: 12px 12px 18px;
+}
+
+.title {
+	margin: 0;
+	margin-bottom: 8px;
+	font-family: $font-title;
+	font-size: 18px;
+	letter-spacing: 0.18px;
+	color: var(--text-color);
+}
+
+.text {
+	margin: 0;
+	font-family: $font-base;
+	font-size: 14px;
+	letter-spacing: 0.14px;
+	color: var(--text-color);
+}
+
+.schedules {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+}
+
+.schedules_item {
+	display: flex;
+	flex-direction: row;
+	p {
+		margin: 0 8px 0 0;
+		font-family: $font-base;
+		font-size: 14px;
+		letter-spacing: 0.14px;
+		color: var(--text-color);
+	}
+}

@@ -1,0 +1,28 @@
+.container {
+	display: flex;
+	width: 556px;
+	height: 704px;
+	border-radius: 16px;
+	background-color: gray;
+	border: 0;
+	overflow: hidden;
+	position: relative;
+	z-index: 0;
+}
+
+.map {
+	width: 500px;
+}
+
+.map_hint {
+	width: 268px;
+	height: 342px;
+}
+
+.ymaps-2-1-79-float-button {
+	box-shadow: none !important;
+}
+
+[class*='copyrights-pane'] {
+	display: none !important;
+}

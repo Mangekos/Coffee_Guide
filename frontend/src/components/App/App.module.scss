@@ -1,0 +1,42 @@
+.root {
+	margin: 0 auto;
+	height: 100vh;
+	max-width: 1440px;
+}
+
+:root[data-theme='light'] {
+	--background-color: rgba(255, 255, 255, 1);
+	--card-color: rgba(255, 255, 255, 1);
+	--text-color: rgba(23, 22, 20, 1);
+	--text-color-alternative: rgba(23, 22, 20, 1);
+	--text-footer: rgba(70, 66, 60, 1);
+	--decoration-color: rgba(61, 160, 131, 1);
+	--decoration-color-alternative: rgb(145, 224, 200, 1);
+	--placeholder: rgba(70, 66, 60, 1);
+	--line-color: rgba(23, 22, 20, 0.2);
+	--box-shadow: 4px 4px 10px 0px rgba(55, 82, 74, 0.1);
+	--hover: rgba(242, 242, 242, 1);
+	--input: rgba(255, 255, 255, 1);
+	--button: rgba(235, 235, 235, 1);
+}
+
+:root[data-theme='dark'] {
+	--background-color: rgba(23, 22, 20, 1);
+	--card-color: rgba(40, 38, 34, 1);
+	--text-color: rgba(255, 255, 255, 1);
+	--text-color-alternative: rgba(128, 153, 146, 1);
+	--text-footer: rgba(255, 255, 255, 1);
+	--decoration-color: rgb(145, 224, 200, 1);
+	--decoration-color-alternative: rgba(128, 153, 146, 1);
+	--placeholder: rgba(128, 153, 146, 1);
+	--line-color: rgba(255, 255, 255, 0.3);
+	--box-shadow: 1px 1px 4px 0px rgba(70, 119, 104, 0.4);
+	--hover: rgba(46, 50, 49, 1);
+	--input: rgba(46, 50, 49, 1);
+	--button: rgba(128, 153, 146, 1);
+}
+
+body {
+	background: var(--background-color);
+	color: var(--text-color);
+}

@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "name": "V60",
+        "slug": "v60"
+    },
+    {
+        "id": "2",
+        "name": "Кемекс",
+        "slug": "chemex"
+    },
+    {
+        "id": "3",
+        "name": "Аэропресс",
+        "slug": "aeropress"
+    },
+    {
+        "id": "4",
+        "name": "Френч-пресс",
+        "slug": "french_press"
+    }
+]

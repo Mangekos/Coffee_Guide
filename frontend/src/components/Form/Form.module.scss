@@ -1,0 +1,6 @@
+.container {
+	height: 100%;
+	&:last-child {
+		margin-bottom: 32px;
+	}
+}

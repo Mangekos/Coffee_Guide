@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "name": "Пн-Пт",
+    "slug": "Mon_Fri"
+  },
+  {
+    "id": "2",
+    "name": "Сб-Вс",
+    "slug": "Sat_Sun"
+  },
+  {
+    "id": "3",
+    "name": "Ежедневно",
+    "slug": "Everyday"
+  },
+  {
+    "id": "4",
+    "name": "Пн-Чт",
+    "slug": "Mon_Thu"
+  },
+  {
+    "id": "5",
+    "name": "Пт",
+    "slug": "Mon"
+  }
+]

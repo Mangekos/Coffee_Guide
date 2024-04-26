@@ -1,0 +1,64 @@
+@use '../../assets/fonts/fonts_list.scss' as *;
+
+.popup {
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.8s ease;
+}
+
+.popup_opened {
+	visibility: visible;
+	opacity: 1;
+	transition: all 0.8s ease;
+}
+
+.result_container {
+	// min-height: 324px;
+	background-color: var(--background-color);
+
+	position: absolute;
+	top: 100%;
+	margin-top: 14px;
+	border: 1px solid #3da083;
+	border-radius: 28px;
+	width: 100%;
+	z-index: 1;
+}
+
+.result {
+	margin: 0;
+	padding: 32px;
+	list-style: none;
+	li {
+		padding: 8px;
+		margin-bottom: 16px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.title {
+	@include font($sans, 18px, 20px, 0.18px);
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+
+	color: var(--decoration-color);
+}
+
+.address {
+	@include font($sans, 14px, 18px, 0.18px);
+	margin: 0;
+	padding: 0;
+	font-style: normal;
+
+	color: var(--decoration-color);
+}
+
+.item:hover {
+	background-color: var(--hover);
+	border-radius: 10px;
+	cursor: pointer;
+}

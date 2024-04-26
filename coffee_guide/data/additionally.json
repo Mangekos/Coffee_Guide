@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "name": "Декаф",
+        "slug": "decaf"
+    },
+    {
+        "id": "2",
+        "name": "Продажа зерна",
+        "slug": "selling_grain"
+    },
+    {
+        "id": "3",
+        "name": "Можно с животными",
+        "slug": "dog_friendly"
+    }
+]

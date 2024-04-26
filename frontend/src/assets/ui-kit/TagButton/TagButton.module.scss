@@ -1,0 +1,59 @@
+@use '../../fonts/fonts_list' as *;
+
+.button {
+	@include font($sans, 16px, 18px, 0);
+	width: 129px;
+	height: 99px;
+	border-radius: 10px;
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: var(--text-color);
+	// &:hover {
+	// 	background-color: #2E3231;
+	// 	color: rgb(255, 255, 255);
+	// }
+}
+
+.text {
+	padding: 0;
+	margin: 4px 0 0 0;
+}
+
+.icon {
+	width: 45px;
+	height: 50px;
+	object-fit: contain;
+}
+
+.checked {
+	background-image: url('../../images/chosen-filter.svg');
+	background-repeat: no-repeat;
+	background-position: top right 20%;
+	background-size: 15px 20px;
+}
+
+// .action {
+// 	width: 44px;
+// 	height: 44px;
+// 	border-radius: 50%;
+// 	background-color: #fff;
+// 	background-image: url('../../images/favourites.svg');
+// 	background-repeat: no-repeat;
+// 	background-position: center;
+// 	cursor: pointer;
+// }
+
+// .action_active {
+// 	background-image: url('../../images/favourites-active.svg');
+// }
+
+// .action_close {
+// 	background-image: url('../../images/close-icon.svg');
+// }

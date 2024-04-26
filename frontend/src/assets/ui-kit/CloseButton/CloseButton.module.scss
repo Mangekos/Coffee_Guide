@@ -1,0 +1,24 @@
+.default {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	// background-color: rgba(23, 22, 20, 0.4);
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	background-image: url(../../images/ui-kit-icons/close.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 44px;
+	transition: 0.3s opacity;
+}
+
+.default:hover {
+	opacity: 0.7;
+}
+
+.small {
+	width: 30px;
+	height: 30px;
+	background-size: 30px;
+}

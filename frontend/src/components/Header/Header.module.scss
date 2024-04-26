@@ -1,0 +1,90 @@
+@use '../../assets/fonts/fonts_list' as *;
+
+.header {
+	margin: 36px auto;
+	max-width: 1132px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.logo {
+	width: 172px;
+	height: 54px;
+	display: flex;
+	align-items: center;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.logo_text {
+	margin: 0;
+	color: var(--decoration-color);
+	@include font($sans, 28px, 20px, 0.28px);
+	font-weight: 700;
+}
+
+.container {
+	width: 100%;
+	min-height: 54px;
+	flex-direction: row;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.align_container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.favourites {
+	display: flex;
+	align-items: center;
+	margin-right: 66px;
+	cursor: pointer;
+	text-decoration: none;
+	&:hover {
+		background-color: var(--hover);
+		border-radius: 12px;
+	}
+}
+
+.icon {
+	width: 44px;
+	height: 44px;
+	background-image: url('../../assets/images/ui-kit-icons/favorites-no-background.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.icon_dark {
+	width: 44px;
+	height: 44px;
+	background-image: url('../../assets/images/ui-kit-icons/favorites.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.text {
+	padding: 0;
+	@include font($sans, 18px, 20px, 0.18px);
+	// color: black;
+	color: var(--text-color);
+	margin: 4px 16px 0 4px;
+}
+
+.profile {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.profile_icon {
+	width: 17px;
+	height: 22px;
+	margin-right: 12px;
+}

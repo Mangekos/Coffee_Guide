@@ -1,0 +1,62 @@
+version: '3'
+
+volumes:
+  pg_data:
+  static_data:
+  frontend:
+  media_data:
+  redoc:
+
+services:
+
+  db:
+    image: postgres:13.10
+    env_file:
+      - .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data/
+
+
+  backend:
+    # image: danilkas/foodgram_backend
+    build:
+      context: ./coffee_guide/
+      dockerfile: Dockerfile
+    env_file:
+      - .env 
+    volumes:
+      - static_data:/app/backend_static/
+      - redoc:/app/docs/
+      - media_data:/app/media
+    depends_on:
+      - db
+
+
+  frontend:
+    # image: danilkas/foodgram_frontend
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    volumes:
+      - frontend:/app/result_build/dist
+
+
+  nginx:
+    build:
+      context: ./nginx/
+      dockerfile: Dockerfile
+    ports:
+      # - "8000:80"
+      - ${NGINX_PORT}:${HOST_PORT}
+    volumes:
+      - frontend:/usr/share/nginx/html/
+      # - redoc:/app/docs
+      # - redoc:/usr/share/nginx/html/api/docs/
+      - static_data:/var/html/static
+      - media_data:/var/html/media
+      - redoc:/usr/share/nginx/html/api/docs/
+      # - media_data:/media
+      # - static_data:/staticfiles/
+    depends_on:
+      - frontend
+      - backend
